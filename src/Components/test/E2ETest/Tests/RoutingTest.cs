@@ -334,6 +334,17 @@ namespace Microsoft.AspNetCore.Components.E2ETest.Tests
         }
 
         [Fact]
+        public void CanFollowLinkDefinedInOpenShadowRoot()
+        {
+            SetUrlViaPushState("/");
+
+            var app = Browser.MountTestComponent<TestRouter>();
+            app.FindElement(By.LinkText("Anchor tag within shadow root")).Click();
+            Browser.Equal("This is another page.", () => app.FindElement(By.Id("test-info")).Text);
+            AssertHighlightedLinks("Other", "Other with base-relative URL (matches all)");
+        }
+
+        [Fact]
         public void CanGoBackFromNotAComponent()
         {
             SetUrlViaPushState("/");
