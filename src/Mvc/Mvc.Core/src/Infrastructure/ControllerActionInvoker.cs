@@ -91,7 +91,7 @@ namespace Microsoft.AspNetCore.Mvc.Infrastructure
                             {
                                 _actionExecutingContext = new ActionExecutingContextSealed(_controllerContext, _filters, _arguments, _instance);
                             }
-                            else if (_actionExecutedContext != null && _actionExecutedContext.Result != null)
+                            else if (_actionExecutedContext?.Result != null)
                             {
                                 _actionExecutingContext.Result = _actionExecutedContext.Result;
                             }
@@ -105,7 +105,7 @@ namespace Microsoft.AspNetCore.Mvc.Infrastructure
                             {
                                 _actionExecutingContext = new ActionExecutingContextSealed(_controllerContext, _filters, _arguments, _instance);
                             }
-                            else if (_actionExecutedContext != null && _actionExecutedContext.Result != null)
+                            else if (_actionExecutedContext?.Result != null)
                             {
                                 _actionExecutingContext.Result = _actionExecutedContext.Result;
                             }
